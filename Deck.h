@@ -102,8 +102,8 @@ public:
 			shufflePosition = rand() % _deck.size();
 			// std::cout << "SHUFFPOS " << shufflePosition << std::endl;
 			Card temp = _deck[i];
-			_deck[shufflePosition] = _deck[i];
 			_deck[i] = _deck[shufflePosition];
+			_deck[shufflePosition] = temp;
 		}
 	}
 
