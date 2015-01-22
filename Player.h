@@ -11,8 +11,18 @@ class Player {
 private:
 	Deck _hand;
 	DiscardPile _discard;
-	bool active;
+	bool _active;
+	bool _protected;
+
 public:
+	Player()
+	{
+		Deck _hand           = Deck();
+		DiscardPile _discard = DiscardPile();
+		_active              = true;
+		_protected           = false;
+	}
+
 	void discard(int i)
 	{
 		_discard.add(_hand.remove(i));
@@ -20,7 +30,17 @@ public:
 
 	void lose() 
 	{
-		active = false;
+		_active = false;
+	}
+
+	void protect()
+	{
+		_protected = true;
+	}
+
+	void unprotect()
+	{
+		_protected = false;
 	}
 
 	void showDiscardPile() 
