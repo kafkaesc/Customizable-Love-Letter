@@ -1,31 +1,31 @@
 #include <iostream>
 
-using namespace std;
-
 void printTitle()
 {
-	cout << 
-		"Love Letter" << endl <<
-		"It's a card game." << endl <<
-		"Programming by Jared Hettinger" << endl;
+	std::cout << 
+		"Love Letter" << std::endl <<
+		"It's a card game." << std::endl <<
+		"Programming by Jared Hettinger" << std::endl;
 }
 
 void printMenu()
 {
-	cout << endl <<
-		"1. Start Game" << endl <<
-		"2. Instructions" << endl <<
-		"3. About" << endl << endl <<
-		"0. Exit Game" << endl << endl << 
+	std::cout << std::endl <<
+		"1. Start Game" << std::endl <<
+		"2. Instructions" << std::endl <<
+		"3. About" << std::endl << std::endl <<
+		"0. Exit Game" << std::endl << std::endl << 
 		"-> ";
 }
 
 void printInstructions()
 {
-	cout << endl << "- Instructions for the game. -" << endl << endl;
+	std::cout << std::endl << "- Instructions for the game. -" 
+		<< std::endl << std::endl;
 }
 
 void printAbout()
 {
-	cout << endl << "- About the game. -" << endl << endl;
+	std::cout << std::endl << "- About the game. -" 
+		<< std::endl << std::endl;
 }

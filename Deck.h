@@ -12,12 +12,13 @@
 
 class Deck {
 private:
-	vector<Card> _deck;
+	std::vector<Card> _deck;
 public:
-	Deck() {};
+	Deck() {}
+
 	void initPlayDeck(std::string deckFilename = "default.txt") 
 	{
-		ifstream read;
+		std::ifstream read;
 		read.open(deckFilename);
 
 		if (read.is_open())

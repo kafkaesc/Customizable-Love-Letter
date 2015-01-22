@@ -15,7 +15,7 @@ int main() {
 		printMenu();
 
 		char usr_cmd;
-		cin >> usr_cmd;
+		std::cin >> usr_cmd;
 		if(usr_cmd == '1')
 		{
 			Deck mainDeck = Deck();
