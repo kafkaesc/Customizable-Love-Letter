@@ -84,6 +84,13 @@ public:
 		return temp;
 	}
 
+	Card remove(int i)
+	{
+		Card temp = _deck[i];
+		_deck.erase(_deck.begin() + i);
+		return temp;
+	}
+
 	void print()
 	{
 		for(int i = 0; i < _deck.size(); ++i) 

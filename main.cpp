@@ -4,6 +4,7 @@
 // should eventually be deleted and used in Game.cpp
 #include "Card.h"
 #include "Deck.h"
+#include "Player.h"
 
 int main() {
 	bool run = true;
@@ -18,8 +19,16 @@ int main() {
 		if(usr_cmd == '1')
 		{
 			Deck mainDeck = Deck();
+			mainDeck.initPlayDeck();
 			mainDeck.shuffle();
-			mainDeck.print();
+			Player pl = Player();
+			pl.take(mainDeck.give());
+			pl.take(mainDeck.give());
+			pl.showHand();
+			std::cout << "-- discard card at 0 --" << std::endl;
+			pl.discard(0);
+			pl.showHand();
+			pl.showDiscardPile();
 		}
 		else if (usr_cmd == '2') printInstructions();
 		else if (usr_cmd == '3') printAbout();
