@@ -14,7 +14,8 @@ class Deck {
 private:
 	vector<Card> _deck;
 public:
-	Deck(std::string deckFilename = "default.txt") 
+	Deck() {};
+	void initPlayDeck(std::string deckFilename = "default.txt") 
 	{
 		ifstream read;
 		read.open(deckFilename);
@@ -33,42 +34,42 @@ public:
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Priest action."));
+			add(Card(name, value, "Priest action."), 2);
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Baron action."));
+			add(Card(name, value, "Baron action."), 2);
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Handmaid action."));
+			add(Card(name, value, "Handmaid action."), 2);
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Prince action."));
+			add(Card(name, value, "Prince action."), 2);
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "King action."), 1);
+			add(Card(name, value, "King action."));
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Countess action."), 1);
+			add(Card(name, value, "Countess action."));
 
 			getline(read, name);
 			getline(read, s_value);
 			value = atoi(s_value.c_str());
-			add(Card(name, value, "Princess action."), 1);
+			add(Card(name, value, "Princess action."));
 		}
 		read.close();
 	}
 
-	void add(Card c, int n = 2)
+	void add(Card c, int n = 1)
 	{
 		for (int i = 0; i < n; ++i) 
 		{
@@ -76,7 +77,7 @@ public:
 		}
 	}
 
-	Card draw() 
+	Card give() 
 	{
 		Card temp = _deck.back();
 		_deck.pop_back();
@@ -100,7 +101,6 @@ public:
 		for(int i = 0; i < _deck.size(); ++i) 
 		{
 			shufflePosition = rand() % _deck.size();
-			// std::cout << "SHUFFPOS " << shufflePosition << std::endl;
 			Card temp = _deck[i];
 			_deck[i] = _deck[shufflePosition];
 			_deck[shufflePosition] = temp;
